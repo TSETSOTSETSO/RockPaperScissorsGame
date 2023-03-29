@@ -1,5 +1,11 @@
 import random
 
+# Define color codes
+GREEN = '\033[92m'
+RED = '\033[91m'
+YELLOW = '\033[93m'
+END = '\033[0m'
+
 rock = "Rock"
 paper = "Paper"
 scissors = "Scissors"
@@ -21,7 +27,7 @@ while True:
     elif player_action == "s":
         player_action = scissors
     else:
-        print("Please enter a valid input.")
+        print(f"{RED}Please enter a valid input.{END}")
         continue
 
     bot_number = random.randint(1, 3)
@@ -40,13 +46,13 @@ while True:
         (player_action == paper and bot_action == rock) or \
         (player_action == scissors and bot_action == paper):
         player_score += 1
-        print("You win! Congratulations!")
+        print(f"{GREEN}You win! Congratulations!{END}")
     elif (player_action == rock and bot_action == paper) or \
         (player_action == paper and bot_action == scissors) or \
         (player_action == scissors and bot_action == rock):
         bot_score += 1
-        print("You lose! Try again!")
+        print(f"{RED}You lose! Try again!{END}")
     else:
-        print("Draw! Your move is equal to the computer's. Try again!")
+        print(f"{YELLOW}Draw! Your move is equal to the computer's. Try again!{END}")
 
     print(f"Current score: Player {player_score} - Bot {bot_score}")
